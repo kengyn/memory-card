@@ -1,9 +1,99 @@
+@font-face {
+  font-family: genshinFont;
+  src: url(./assets/zh-cn.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: genshinFont;
+  font-size: 1.2rem;
 }
 
-body {
-  background-color: darkslategray;
+body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background: url(./assets/background.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  padding: 10px 0;
+  margin-bottom: 30px;
+  width: 100vw;
+  color: #fed77c;
+  background-color: rgb(4 14 15 / 88%);
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 3rem;
+}
+
+.card-container {
+  width: 80%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 40px;
+}
+
+.card {
+  text-align: center;
+  width: 270px;
+  height: 300px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+}
+
+.traveler {
+  background-color: #f8f6f5;
+}
+
+.pyro {
+  background-color: #ef7a35;
+}
+
+.geo {
+  background-color: #fab72e;
+}
+
+.electro {
+  background-color: #b08fc2;
+}
+
+.hydro {
+  background-color: #4bc3f1;
+}
+
+.cryo {
+  background-color: #a0d7e4;
+}
+
+.anemo {
+  background-color: #75c3aa;
 }

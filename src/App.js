@@ -1,8 +1,16 @@
-import paimon from "./images/paimon.webp";
+import Card from "./components/Card";
+
 const App = () => {
   return (
     <>
-      <img src={paimon}></img>
+      <header>
+        <h1>Genshin Memory Game</h1>
+        <div className="score-board">
+          <div>Score: 0/12</div>
+          <div>Best Score: 0/12</div>
+        </div>
+      </header>
+      <Card />
     </>
   );
 };
