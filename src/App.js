@@ -1,16 +1,26 @@
+import { useState } from "react";
 import Card from "./components/Card";
+import ScoreBoard from "./components/ScoreBoard";
 
 const App = () => {
+  const [clicked, setClicked] = useState([]);
+
+  const handleClicked = (card) => {
+    if (clicked.some((e) => e.id === card.id)) {
+      console.log("LOSERRRRRRR");
+      setClicked([]);
+    } else {
+      setClicked([...clicked, { id: card.id, name: card.name }]);
+    }
+  };
+
   return (
     <>
       <header>
         <h1>Genshin Memory Game</h1>
-        <div className="score-board">
-          <div>Score: 0/12</div>
-          <div>Best Score: 0/12</div>
-        </div>
+        <ScoreBoard />
       </header>
-      <Card />
+      <Card onClicked={handleClicked} />
     </>
   );
 };
