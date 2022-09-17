@@ -4,10 +4,17 @@ import ScoreBoard from "./components/ScoreBoard";
 
 const App = () => {
   const [clicked, setClicked] = useState([]);
+  const [bestScore, setBestScore] = useState(0);
+
+  const checkBestScore = () => {
+    if (clicked.length > bestScore) {
+      setBestScore(clicked.length);
+    }
+  };
 
   const handleClicked = (card) => {
     if (clicked.some((e) => e.id === card.id)) {
-      console.log("LOSERRRRRRR");
+      checkBestScore();
       setClicked([]);
     } else {
       setClicked([...clicked, { id: card.id, name: card.name }]);
@@ -18,7 +25,7 @@ const App = () => {
     <>
       <header>
         <h1>Genshin Memory Game</h1>
-        <ScoreBoard />
+        <ScoreBoard score={clicked.length} best={bestScore} />
       </header>
       <Card onClicked={handleClicked} />
     </>

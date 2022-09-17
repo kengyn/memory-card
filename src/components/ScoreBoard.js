@@ -1,11 +1,8 @@
-import { useState } from "react";
-import Card from "./Card";
-
-const ScoreBoard = () => {
+const ScoreBoard = (props) => {
   return (
     <div className="score-board">
-      <div>Score: 0/12</div>
-      <div>Best Score: 0/12</div>
+      <div>Score: {props.score}/12</div>
+      <div>Best Score: {props.best}/12</div>
     </div>
   );
 };

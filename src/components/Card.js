@@ -63,7 +63,7 @@ const Card = ({ onClicked }) => {
     };
   }, [cards]);
 
-  return <div className="card-container">{renderCards(cards)}</div>;
+  return <div className="card-container">{renderCards(shuffled)}</div>;
 };
 
 export default Card;
