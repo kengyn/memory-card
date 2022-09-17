@@ -32,7 +32,7 @@ const Card = ({ onClicked }) => {
   const renderCards = (deck) => {
     return deck.map((card) => (
       <div key={card.id} data-key={card.id} className={"card " + card.element}>
-        <img src={card.src}></img>
+        <img src={card.src} alt={card.name}></img>
         <p>{card.name}</p>
       </div>
     ));
@@ -61,7 +61,7 @@ const Card = ({ onClicked }) => {
         card.removeEventListener("click", randomize);
       });
     };
-  }, [cards]);
+  }, [cards, onClicked, shuffled]);
 
   return <div className="card-container">{renderCards(shuffled)}</div>;
 };
